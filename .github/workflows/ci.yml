@@ -21,11 +21,17 @@ jobs:
       - name: Run Tests
         run: go test ./... -cover
 
-      - name: Style
-        run: go fmt ./...
 
       - name: Exit
         run: (exit 0)
+
+  Style:
+    name: Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fmt Formatinng
+        run: test -z $(go fmt ./...)
       
       
 
