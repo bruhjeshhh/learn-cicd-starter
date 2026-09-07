@@ -21,6 +21,11 @@ jobs:
       - name: Run Tests
         run: go test ./... -cover
 
+      - name: Check Formatting
+        run: go fmt ./...
+
       - name: Exit
         run: (exit 0)
+      
+      
 
