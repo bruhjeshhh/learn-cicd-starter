@@ -26,7 +26,7 @@ jobs:
         run: (exit 0)
 
   Style:
-    name: Formatting
+    name: Style
     runs-on: ubuntu-latest
 
     steps:
