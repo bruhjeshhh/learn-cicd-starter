@@ -20,8 +20,3 @@ func TestGetAPIKey(t *testing.T) {
 		t.Fatalf("expected: %v, got: %v", key, resp)
 	}
 }
-
-func unused() {
-	// this function does nothing
-	// and is called nowhere
-}
