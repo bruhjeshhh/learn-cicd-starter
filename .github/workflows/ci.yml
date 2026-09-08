@@ -21,6 +21,15 @@ jobs:
       - name: Run Tests
         run: go test ./... -cover
 
+      - name: Add Go bin to PATH
+        run: echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+
+      - name: Check Gosec
+        run: gosec ./...
+
 
       - name: Exit
         run: (exit 0)
