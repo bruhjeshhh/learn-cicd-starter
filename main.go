@@ -100,6 +100,6 @@ func main() {
 	if err != nil {
 		fmt.Print("ohno")
 	}
-	log.Printf("Serving on port: %s\n", portInt)
+	log.Printf("Serving on port: %d\n", portInt)
 	log.Fatal(srv.ListenAndServe())
 }
