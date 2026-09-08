@@ -15,6 +15,11 @@ func TestGetAPIKey(t *testing.T) {
 	key := "abc123"
 	req.Header.Set("Authorization", "ApiKey "+key)
 	resp, err := GetAPIKey(req.Header)
+
+	if err != nil {
+		fmt.Print("ohno")
+	}
+
 	if !reflect.DeepEqual(key, resp) {
 		t.Fatalf("expected: %v, got: %v", key, resp)
 	}

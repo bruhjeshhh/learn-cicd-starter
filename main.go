@@ -3,10 +3,13 @@ package main
 import (
 	"database/sql"
 	"embed"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"os"
+	"strconv"
+	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
@@ -89,10 +92,14 @@ func main() {
 
 	router.Mount("/v1", v1Router)
 	srv := &http.Server{
-		Addr:    ":" + port,
-		Handler: router,
+		Addr:        ":" + port,
+		Handler:     router,
+		ReadTimeout: time.Second,
 	}
-
-	log.Printf("Serving on port: %s\n", port)
+	portInt, err := strconv.Atoi(port)
+	if err != nil {
+		fmt.Print("ohno")
+	}
+	log.Printf("Serving on port: %d\n", portInt)
 	log.Fatal(srv.ListenAndServe())
 }
