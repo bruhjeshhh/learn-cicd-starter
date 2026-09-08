@@ -26,12 +26,15 @@ jobs:
         run: (exit 0)
 
   Style:
-    name: Style
+    name: Style 
     runs-on: ubuntu-latest
 
     steps:
       - name: Fmt Formatinng
         run: test -z $(go fmt ./...)
+
+      - name: Static Check
+        run: staticcheck ./...
       
       
 

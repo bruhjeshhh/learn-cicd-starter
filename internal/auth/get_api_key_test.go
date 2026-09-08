@@ -14,8 +14,14 @@ func TestGetAPIKey(t *testing.T) {
 	}
 	key := "abc123"
 	req.Header.Set("Authorization", "ApiKey "+key)
-	resp, err := GetAPIKey(req.Header)
+	resp, _ := GetAPIKey(req.Header)
+
 	if !reflect.DeepEqual(key, resp) {
 		t.Fatalf("expected: %v, got: %v", key, resp)
 	}
+}
+
+func unused() {
+	// this function does nothing
+	// and is called nowhere
 }
